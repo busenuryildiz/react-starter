@@ -1,14 +1,12 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
-function Homepage() {
-	const cart = useSelector((state: any) => {
-		return state.cart;
-	});
 
+function Homepage() {
+	const cartState = useSelector((state: any) => state.cart);
+	console.log(cartState);
 	return (
 		<div>
-			{cart.cartItems.length} adet ürün sepette
 			<br />
 			{/* İç linklerde href kullanımı YASAK */}
 			{/* <a href="/posts">Posts</a> */}

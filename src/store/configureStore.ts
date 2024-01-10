@@ -1,6 +1,12 @@
-import { legacy_createStore as createStore } from 'redux'
-import { rootReducer } from "./rootReducer";
+import {combineReducers, configureStore} from "@reduxjs/toolkit";
+import {cartReducer} from "./slices/cartSlice";
+import {authReducer} from "./slices/authSlice";
 
-export const configureStore = () => {
-    return createStore(rootReducer);
-}
+const rootReducer = combineReducers({
+	cart: cartReducer,
+	auth: authReducer,
+});
+
+export const globalStore = configureStore({
+	reducer: rootReducer,
+});
